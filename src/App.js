@@ -1,11 +1,46 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import AppPrivacy from './pages/AppPrivacy';
 import DataUsage from './pages/DataUsage';
+
+// Navbar'ı ayrı bir component olarak çıkaralım
+function Navbar({ isScrolled }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  return (
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="nav-links">
+        <Link to="/" className="nav-link">
+          <span className="nav-icon">
+            <i className="fas fa-home"></i>
+          </span>
+          <span className="nav-text">Home</span>
+        </Link>
+        {isHomePage && (
+          <>
+            <a href="#about" className="nav-link">
+              <span className="nav-icon"><i className="fas fa-user"></i></span>
+              <span className="nav-text">About</span>
+            </a>
+            <a href="#projects" className="nav-link">
+              <span className="nav-icon"><i className="fas fa-code"></i></span>
+              <span className="nav-text">Projects</span>
+            </a>
+            <a href="#contact" className="nav-link">
+              <span className="nav-icon"><i className="fas fa-envelope"></i></span>
+              <span className="nav-text">Contact</span>
+            </a>
+          </>
+        )}
+      </div>
+    </nav>
+  );
+}
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,33 +58,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-          <div className="nav-links">
-            <a href="/" className="nav-link">
-              <span className="nav-icon">
-                <i className="fas fa-home"></i>
-              </span>
-              <span className="nav-text">Home</span>
-            </a>
-            {window.location.pathname === '/' && (
-              <>
-                <a href="#about" className="nav-link">
-                  <span className="nav-icon"><i className="fas fa-user"></i></span>
-                  <span className="nav-text">About</span>
-                </a>
-                <a href="#projects" className="nav-link">
-                  <span className="nav-icon"><i className="fas fa-code"></i></span>
-                  <span className="nav-text">Projects</span>
-                </a>
-                <a href="#contact" className="nav-link">
-                  <span className="nav-icon"><i className="fas fa-envelope"></i></span>
-                  <span className="nav-text">Contact</span>
-                </a>
-              </>
-            )}
-          </div>
-        </nav>
-
+        <Navbar isScrolled={isScrolled} />
         <Routes>
           <Route path="/" element={
             <MainContent 
@@ -168,29 +177,6 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
 
   return (
     <div className="App">
-      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-        <div className="nav-links">
-          {[
-            { id: 'home', icon: 'fas fa-home', text: 'Home' },
-            { id: 'about', icon: 'fas fa-user', text: 'About' },
-            { id: 'projects', icon: 'fas fa-code', text: 'Projects' },
-            { id: 'contact', icon: 'fas fa-envelope', text: 'Contact' }
-          ].map(link => (
-            <a 
-              key={link.id} 
-              href={`#${link.id}`}
-              className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
-            >
-              <span className="nav-icon">
-                <i className={link.icon}></i>
-              </span>
-              <span className="nav-text">{link.text}</span>
-              <span className="nav-indicator"></span>
-            </a>
-          ))}
-        </div>
-      </nav>
-
       <section id="home" className="hero-section">
         <div className="hero-background">
           <div className="animated-bg"></div>
