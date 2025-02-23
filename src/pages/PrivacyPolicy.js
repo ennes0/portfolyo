@@ -10,7 +10,6 @@ function PrivacyPolicy() {
           <i className="fas fa-arrow-left"></i>
           Back to Home
         </Link>
-        
         <h1>Privacy Policy for Grade Wizard</h1>
         <div className="last-updated">Last Updated: March 2024</div>
         
