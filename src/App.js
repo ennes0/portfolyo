@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import AppPrivacy from './pages/AppPrivacy';
@@ -235,7 +235,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         <div className="about-container">
           <div className="about-left">
             <div className="about-image-wrapper">
-              <img src="/Photo-2.jpeg" alt="Profile" className="profile-img" />
+              <img src="/Photo-2.jpeg" alt="Profile" className="profile-img" /> className="profile-img" />
               <span className="years">2+</span>
               <span className="text">Years<br/>Experience</span>
             </div>
@@ -301,7 +301,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
               {
                 title: "Grade Wizard",
                 description: "A sophisticated iOS application that helps students track and analyze their academic performance. Built with React Native for the frontend and Python for the backend ML algorithms, this app features grade prediction, performance analytics, and personalized study recommendations.",
-                image: "/Thee.png",
+                image: "/Thee.png",nv.PUBLIC_URL}/Thee.png`,
                 tech: ["React Native", "Python", "Machine Learning", "iOS", "Node.js", "MongoDB"],
                 liveLink: "https://apps.apple.com/grade-wizard"
               }
@@ -410,17 +410,17 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
               <p>Your AI-Powered Academic Assistant</p>
               <div className="app-badges">
                 <a href="https://apps.apple.com/grade-wizard" className="app-store-badge">
-                  <img src="/appstr.png" alt="Download on App Store" />
+                  <img src={`${process.env.PUBLIC_URL}/appstr.png`} alt="Download on App Store" />
                 </a>
               </div>
             </div>
             <div className="footer-section">
               <h3>Legal</h3>
               <div className="footer-links">
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/app-privacy">App Privacy</a>
-                <a href="/data-usage">Data Usage</a>
+                <a href="/privacy-policy">Privacy Policy</a>ink>
+                <a href="/terms">Terms of Service</a>ink>
+                <a href="/app-privacy">App Privacy</a>ink>
+                <a href="/data-usage">Data Usage</a>ink>
               </div>
             </div>
             <div className="footer-section">
