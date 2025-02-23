@@ -12,6 +12,20 @@ function Navbar({ isScrolled }) {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = document.querySelector('.navbar').offsetHeight;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="nav-links">
@@ -23,15 +37,36 @@ function Navbar({ isScrolled }) {
         </Link>
         {isHomePage && (
           <>
-            <a href="#about" className="nav-link">
+            <a 
+              href="#about" 
+              className="nav-link" 
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('about');
+              }}
+            >
               <span className="nav-icon"><i className="fas fa-user"></i></span>
               <span className="nav-text">About</span>
             </a>
-            <a href="#projects" className="nav-link">
+            <a 
+              href="#projects" 
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('projects');
+              }}
+            >
               <span className="nav-icon"><i className="fas fa-code"></i></span>
               <span className="nav-text">Projects</span>
             </a>
-            <a href="#contact" className="nav-link">
+            <a 
+              href="#contact" 
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('contact');
+              }}
+            >
               <span className="nav-icon"><i className="fas fa-envelope"></i></span>
               <span className="nav-text">Contact</span>
             </a>

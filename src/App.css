@@ -179,6 +179,7 @@ section {
   margin: 0; /* Added to remove any margin */
   position: relative; /* Added for better positioning */
   overflow: hidden; /* Added to contain all content */
+  scroll-margin-top: 100px; /* Navbar height + extra padding */
 }
 
 .hero-section {
