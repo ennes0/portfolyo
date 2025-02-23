@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      const path = window.location.pathname;
-      const hash = path.replace('/portfolyo', '');
-      window.location.replace(`/portfolyo/#${hash}`);
+      const segment = window.location.pathname.split('/').pop();
+      window.location.replace(`/portfolyo/#/${segment}`);
     </script>
   </head>
   <body>
