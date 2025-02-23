@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <Router basename="/portfolyo">
       <div className="App">
         <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
           <div className="nav-links">
