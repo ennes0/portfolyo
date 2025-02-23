@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import emailjs from 'emailjs-com';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Terms from './pages/Terms';
 import AppPrivacy from './pages/AppPrivacy';
@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <Router basename="/portfolyo">
+    <Router>
       <div className="App">
         <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
           <div className="nav-links">
@@ -417,10 +417,10 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
             <div className="footer-section">
               <h3>Legal</h3>
               <div className="footer-links">
-                <a href="/privacy-policy">Privacy Policy</a>
-                <a href="/terms">Terms of Service</a>
-                <a href="/app-privacy">App Privacy</a>
-                <a href="/data-usage">Data Usage</a>
+                <Link to="/privacy-policy">Privacy Policy</Link>
+                <Link to="/terms">Terms of Service</Link>
+                <Link to="/app-privacy">App Privacy</Link>
+                <Link to="/data-usage">Data Usage</Link>
               </div>
             </div>
             <div className="footer-section">
