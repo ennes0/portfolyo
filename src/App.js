@@ -59,10 +59,10 @@ function App() {
               setIsScrolled={setIsScrolled}
             />
           } />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/app-privacy" element={<AppPrivacy />} />
-          <Route path="/data-usage" element={<DataUsage />} />
+          <Route path="#/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="#/terms" element={<Terms />} />
+          <Route path="#/app-privacy" element={<AppPrivacy />} />
+          <Route path="#/data-usage" element={<DataUsage />} />
         </Routes>
       </div>
     </Router>
@@ -417,10 +417,10 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
             <div className="footer-section">
               <h3>Legal</h3>
               <div className="footer-links">
-                <Link to="/privacy-policy">Privacy Policy</Link>
-                <Link to="/terms">Terms of Service</Link>
-                <Link to="/app-privacy">App Privacy</Link>
-                <Link to="/data-usage">Data Usage</Link>
+                <Link to="#/privacy-policy">Privacy Policy</Link>
+                <Link to="#/terms">Terms of Service</Link>
+                <Link to="#/app-privacy">App Privacy</Link>
+                <Link to="#/data-usage">Data Usage</Link>
               </div>
             </div>
             <div className="footer-section">
