@@ -256,7 +256,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         <div className="about-container">
           <div className="about-left">
             <div className="about-image-wrapper">
-              <img src={`${process.env.PUBLIC_URL}/Photo-2.jpeg`} alt="Profile" className="profile-img" />
+              <img src={`${process.env.PUBLIC_URL}/enes.jpeg`} alt="Profile" className="profile-img" />
               <span className="years">2+</span>
               <span className="text">Years<br/>Experience</span>
             </div>
