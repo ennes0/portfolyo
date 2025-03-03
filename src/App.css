@@ -1534,3 +1534,33 @@ html {
     height: 44px;
   }
 }
+
+/* Scroll Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add stagger effect for children */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stagger-children.show > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children.show > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-children.show > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-children.show > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-children.show > *:nth-child(5) { transition-delay: 0.5s; }
+
+.stagger-children.show > * {
+  opacity: 1;
+  transform: translateY(0);
+}

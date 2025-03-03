@@ -126,6 +126,34 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
   });
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // Ana element için
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+          // Çocuk elementler için
+          if (entry.target.classList.contains('stagger-children') && entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '-50px'
+      }
+    );
+
+    // Scroll reveal class'ını ekle ve observe et
+    document.querySelectorAll('.scroll-reveal, .stagger-children').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -252,9 +280,10 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         </div>
       </section>
 
+      {/* About section'a scroll reveal ekle */}
       <section id="about" className="about-section">
         <div className="about-container">
-          <div className="about-left">
+          <div className="about-left scroll-reveal">
             <div className="about-image-wrapper">
               <img src={`${process.env.PUBLIC_URL}/enes.jpeg`} alt="Profile" className="profile-img" />
               <span className="years">2+</span>
@@ -262,9 +291,9 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
             </div>
           </div>
           <div className="about-right">
-            <h2>About Me</h2>
-            <p className="about-intro">Frontend Developer & UI/UX Designer passionate about creating beautiful web experiences</p>
-            <div className="about-details">
+            <h2 className="scroll-reveal">About Me</h2>
+            <p className="about-intro scroll-reveal">Frontend Developer & UI/UX Designer passionate about creating beautiful web experiences</p>
+            <div className="about-details stagger-children">
               <div className="about-item">
                 <i className="fas fa-code"></i>
                 <div className="about-item-content">
@@ -288,8 +317,8 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
               </div>
             </div>
             <div className="skills-container">
-              <h3>Technical Skills</h3>
-              <div className="skills-grid">
+              <h3 className="scroll-reveal">Technical Skills</h3>
+              <div className="skills-grid stagger-children">
                 {[
                   'React',
                   'React Native',
@@ -313,11 +342,12 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         </div>
       </section>
 
+      {/* Projects section'a scroll reveal ekle */}
       <section id="projects" className="projects-section">
         <div className="projects-container">
-          <h2>My Projects</h2>
-          <p className="projects-intro">Featured Project</p>
-          <div className="projects-grid single-project">
+          <h2 className="scroll-reveal">My Projects</h2>
+          <p className="projects-intro scroll-reveal">Featured Project</p>
+          <div className="projects-grid single-project scroll-reveal">
             {[
               {
                 title: "Grade Wizard",
@@ -353,9 +383,10 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         </div>
       </section>
 
+      {/* Contact section'a scroll reveal ekle */}
       <section id="contact" className="contact-section">
         <div className="contact-container">
-          <div className="contact-info">
+          <div className="contact-info stagger-children">
             <h2>Contact Me</h2>
             <p>Let's work together! Feel free to reach out.</p>
             <div className="contact-details">
@@ -373,7 +404,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
               </div>
             </div>
           </div>
-          <div className="contact-form-container">
+          <div className="contact-form-container scroll-reveal">
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-group">
                 <label htmlFor="email">Email</label>
