@@ -324,7 +324,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
                 description: "A sophisticated iOS application that helps students track and analyze their academic performance. Built with React Native for the frontend and Python for the backend ML algorithms, this app features grade prediction, performance analytics, and personalized study recommendations.",
                 image: `${process.env.PUBLIC_URL}/Thee.png`,
                 tech: ["React Native", "Python", "Machine Learning", "iOS", "Node.js", "MongoDB"],
-                liveLink: "https://apps.apple.com/grade-wizard"
+                liveLink: "https://apps.apple.com/tr/app/grade-wizard/id6741734068?l=tr"
               }
             ].map((project, index) => (
               <div key={index} className="project-card">
@@ -430,7 +430,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
               <h3>Grade Wizard</h3>
               <p>Your AI-Powered Academic Assistant</p>
               <div className="app-badges">
-                <a href="https://apps.apple.com/grade-wizard" className="app-store-badge">
+                <a href="https://apps.apple.com/tr/app/grade-wizard/id6741734068?l=tr" className="app-store-badge">
                   <img src={`${process.env.PUBLIC_URL}/appstr.png`} alt="Download on App Store" />
                 </a>
               </div>
