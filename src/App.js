@@ -251,23 +251,95 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         </div>
         <div className="hero-content">
           <div className="hero-text">
+            <div className="hero-greeting">Hello, I'm Mehmet Enes</div>
             <h1 className="glitch" data-text="Welcome to My Portfolio">
               Welcome to My Portfolio
             </h1>
             <div className="typing-container">
               <p className="typing-text">I'm a</p>
               <p className="profession">
-                <span>Frontend Developer</span>
-                <span>UI/UX Designer</span>
-                <span>Web Developer</span>
+                <span>Full-Stack Developer</span>
+                <span>Front-End Developer</span>
+                <span>Back-End Developer</span>
               </p>
             </div>
+            <p className="hero-description">
+              Creating modern web applications with cutting-edge technologies
+            </p>
             <div className="hero-buttons">
-              <a href="#projects" className="hero-btn primary">View My Work</a>
-              <a href="#contact" className="hero-btn secondary">Contact Me</a>
+              <a 
+                href="#projects" 
+                className="hero-btn primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('projects');
+                  if (element) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    });
+                  }
+                }}
+              >
+                View My Work
+              </a>
+              <a 
+                href="#contact" 
+                className="hero-btn secondary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('contact');
+                  if (element) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    });
+                  }
+                }}
+              >
+                Contact Me
+              </a>
+            </div>
+            <div className="hero-social">
+              <a href="https://github.com/ennes0" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i className="fab fa-github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/enes-oy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i className="fab fa-linkedin"></i>
+              </a>
             </div>
           </div>
-          <div className="scroll-indicator">
+          <div className="hero-shape">
+            <div className="shape-wrapper">
+              <div className="shape-circle"></div>
+              <div className="shape-dots"></div>
+            </div>
+          </div>
+          <div 
+            className="scroll-indicator"
+            onClick={() => {
+              const element = document.getElementById('about');
+              if (element) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20;
+                
+                window.scrollTo({
+                  top: offsetPosition,
+                  behavior: "smooth"
+                });
+              }
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="mouse">
               <div className="wheel"></div>
             </div>
@@ -284,35 +356,34 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
       <section id="about" className="about-section">
         <div className="about-container">
           <div className="about-left scroll-reveal">
-            <div className="about-image-wrapper">
+            <div className="about-image-wrapper simple-frame">
               <img src={`${process.env.PUBLIC_URL}/enes.jpeg`} alt="Profile" className="profile-img" />
-              <span className="years">2+</span>
-              <span className="text">Years<br/>Experience</span>
+              <span className="experience-tag">2+ Years Experience</span>
             </div>
           </div>
           <div className="about-right">
             <h2 className="scroll-reveal">About Me</h2>
-            <p className="about-intro scroll-reveal">Frontend Developer & UI/UX Designer passionate about creating beautiful web experiences</p>
+            <p className="about-intro scroll-reveal">Full-Stack Developer passionate about creating end-to-end web solutions with expertise in both front-end and back-end technologies</p>
             <div className="about-details stagger-children">
               <div className="about-item">
                 <i className="fas fa-code"></i>
                 <div className="about-item-content">
-                  <h3>Web Development</h3>
-                  <p>Specialized in React, TypeScript, and modern web technologies</p>
+                  <h3>Full-Stack Development</h3>
+                  <p>Specialized in React, Node.js, and modern web technologies for complete solutions</p>
                 </div>
               </div>
               <div className="about-item">
-                <i className="fas fa-palette"></i>
+                <i className="fas fa-database"></i>
                 <div className="about-item-content">
-                  <h3>UI/UX Design</h3>
-                  <p>Creating intuitive and beautiful user interfaces</p>
+                  <h3>Database Management</h3>
+                  <p>Working with SQL and NoSQL databases for efficient data storage and retrieval</p>
                 </div>
               </div>
               <div className="about-item">
                 <i className="fas fa-mobile-alt"></i>
                 <div className="about-item-content">
-                  <h3>Responsive Design</h3>
-                  <p>Building applications that work on all devices</p>
+                  <h3>Responsive Web Apps</h3>
+                  <p>Building scalable applications that work seamlessly across all devices</p>
                 </div>
               </div>
             </div>
@@ -324,13 +395,21 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
                   'React Native',
                   'JavaScript',
                   'TypeScript',
-                  'Python',
-                  'Java',
-                  'C',
-                  'C++',
-                  'HTML/CSS',
                   'Node.js',
-                  'Git'
+                  'Express.js',
+                  'MongoDB',
+                  'PostgreSQL',
+                  'MySQL',
+                  'Redis',
+                  'REST API',
+                  'GraphQL',
+                  'Docker',
+                  'AWS',
+                  'Python',
+                  'Django',
+                  'HTML/CSS',
+                  'Git',
+                  'CI/CD'
                 ].map(skill => (
                   <div key={skill} className="skill-item">
                     <span>{skill}</span>
@@ -347,7 +426,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
         <div className="projects-container">
           <h2 className="scroll-reveal">My Projects</h2>
           <p className="projects-intro scroll-reveal">Featured Project</p>
-          <div className="projects-grid single-project scroll-reveal">
+          <div className="projects-grid scroll-reveal">
             {[
               {
                 title: "Grade Wizard",
@@ -355,6 +434,14 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
                 image: `${process.env.PUBLIC_URL}/Thee.png`,
                 tech: ["React Native", "Python", "Machine Learning", "iOS", "Node.js", "MongoDB"],
                 liveLink: "https://apps.apple.com/tr/app/grade-wizard/id6741734068?l=tr"
+              },
+              {
+                title: "MediMates",
+                description: "A medication reminder and social health app that helps users track their medications and connect with friends for support. Features include personalized medication schedules, social interactions, chat functionality, and health reminders.",
+                image: `${process.env.PUBLIC_URL}/MediMates.png`,
+                tech: ["React Native", "Express.js", "MySQL", "Socket.io", "Redux", "Node.js", "Firebase"],
+                liveLink: "#",
+                comingSoon: true
               }
             ].map((project, index) => (
               <div key={index} className="project-card">
@@ -362,14 +449,18 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
                   <img src={project.image} alt={project.title} />
                   <div className="project-overlay">
                     <div className="project-links">
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        <i className="fas fa-external-link-alt"></i> View App
-                      </a>
+                      {project.comingSoon ? (
+                        <div className="coming-soon-badge">Coming Soon</div>
+                      ) : (
+                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                          <i className="fas fa-external-link-alt"></i> {project.title === "MediRemind" ? "View Project" : "View App"}
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
                 <div className="project-content">
-                  <h3>{project.title}</h3>
+                  <h3>{project.title} {project.comingSoon && <span className="coming-soon-tag">Coming Soon</span>}</h3>
                   <p>{project.description}</p>
                   <div className="project-tech">
                     {project.tech.map((tech, i) => (
@@ -392,7 +483,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
             <div className="contact-details">
               <div className="contact-item">
                 <i className="fas fa-envelope"></i>
-                <span>mehmetenesoy@hotmail.com</span>
+                <span>mehmetenesoy@gmail.com</span>
               </div>
               <div className="contact-item">
                 <i className="fas fa-phone"></i>
@@ -477,7 +568,7 @@ function MainContent({ activeSection, setActiveSection, isScrolled, setIsScrolle
             </div>
             <div className="footer-section">
               <h3>Contact</h3>
-              <p>Email: mehmetenesoy@hotmail.com</p>
+              <p>Email: mehmetenesoy@gmail.com</p>
             </div>
           </div>
         </div>
